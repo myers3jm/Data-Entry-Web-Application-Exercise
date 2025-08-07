@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Data Table</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Title</th>
+                <th>Hometown</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{row.name}}</td>
+                <td>{{row.age}}</td>
+                <td>{{row.title}}</td>
+                <td>{{row.hometown}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br />
+        <a href="http://localhost:5000/entry/">Back to Entry</a>
+    </body>
+</html>

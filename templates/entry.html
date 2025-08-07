@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Data Entry</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <form action="http://localhost:5000/submit/" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name"/>
+            <label for="age">Age</label>
+            <input type="number" name="age"/>
+            <label for="title">Title</label>
+            <select name="title">
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Dr.">Dr.</option>
+            </select>
+            <label for="hometown">Hometown</label>
+            <input type="text" name="hometown"/>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
