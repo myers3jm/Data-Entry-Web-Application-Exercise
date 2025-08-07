@@ -20,7 +20,7 @@
         --secondary: #171717;
         --accent: #70aee0;
         --highlight: #3672a4;
-        --error: #ac6363;
+        --error: #8f2020;
         --shadow-primary: #cfcbc2;
         --shadow-secondary: #474747;
         --gradient: linear-gradient(to right, var(--highlight), var(--accent));
