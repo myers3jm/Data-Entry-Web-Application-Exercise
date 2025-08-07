@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@media (prefers-color-scheme: dark) {
+    :root, body {
+        --primary: #171717;
+        --secondary: #fffbf2;
+        --accent: #3672a4;
+        --highlight: #70aee0;
+        --shadow-primary: #474747;
+        --shadow-secondary: #cfcbc2;
+        --gradient: linear-gradient(to right, var(--highlight), var(--accent));
+        --shadow-gradient: linear-gradient(to right, var(--shadow-primary), var(--shadow-secondary));
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root, body {
+        --primary: #fffbf2;
+        --secondary: #171717;
+        --accent: #70aee0;
+        --highlight: #3672a4;
+        --shadow-primary: #cfcbc2;
+        --shadow-secondary: #474747;
+        --gradient: linear-gradient(to right, var(--highlight), var(--accent));
+        --shadow-gradient: linear-gradient(to right, var(--shadow-primary), var(--shadow-secondary));
+    }
+}
+
+body {
+    font-family: 'Poppins';
+    margin: auto;
+    width: 50%;
+    padding: 10%;
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size: x-large;
+}
+
+form {
+    margin: 0 auto;
+}
+
+label, input, select {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+}
+
+input#submit {
+    height: auto;
+    width: auto;
+    background-color: var(--accent);
+    color: var(--secondary);
+    font-size: large;
+}
+
+label+input, label+select {
+    width: 30%;
+    margin: 0 30% 0 4%;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+a {
+    color: var(--accent);
+}
+
+table, tr {
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--accent);
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid var(--accent);
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+th {
+    background-color: var(--accent);
+    color: var(--primary);
+}

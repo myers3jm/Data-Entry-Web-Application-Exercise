@@ -4,22 +4,36 @@
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
+        <h1>Enter data here</h1>
         <form action="http://localhost:5000/submit/" method="post">
-            <label for="name">Name</label>
-            <input type="text" name="name"/>
-            <label for="age">Age</label>
-            <input type="number" name="age"/>
-            <label for="title">Title</label>
-            <select name="title">
-                <option value="Ms.">Ms.</option>
-                <option value="Mrs.">Mrs.</option>
-                <option value="Mr.">Mr.</option>
-                <option value="Dr.">Dr.</option>
-            </select>
-            <label for="hometown">Hometown</label>
-            <input type="text" name="hometown"/>
+            <table>
+                <tr>
+                    <td><label for="name">Name</label></td>
+                    <td><input type="text" name="name" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age</label></td>
+                    <td><input type="number" name="age" step="1" min="1" max="150"/></td>
+                </tr>
+                <tr>
+                    <td><label for="title">Title</label></td>
+                    <td>
+                        <select name="title" required>
+                            <option selected>Other</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Dr.">Dr.</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="hometown">Hometown</label></td>
+                    <td><input type="text" name="hometown"/></td>
+                </tr>
+            </table>
             <br />
-            <input type="submit" value="Submit">
+            <input id="submit" type="submit" value="Submit">
         </form>
     </body>
 </html>
