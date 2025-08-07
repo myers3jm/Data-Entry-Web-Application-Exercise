@@ -6,6 +6,7 @@
         --secondary: #fffbf2;
         --accent: #3672a4;
         --highlight: #70aee0;
+        --error: #ac6363;
         --shadow-primary: #474747;
         --shadow-secondary: #cfcbc2;
         --gradient: linear-gradient(to right, var(--highlight), var(--accent));
@@ -19,6 +20,7 @@
         --secondary: #171717;
         --accent: #70aee0;
         --highlight: #3672a4;
+        --error: #ac6363;
         --shadow-primary: #cfcbc2;
         --shadow-secondary: #474747;
         --gradient: linear-gradient(to right, var(--highlight), var(--accent));
@@ -94,4 +96,9 @@ td, th {
 th {
     background-color: var(--accent);
     color: var(--primary);
+}
+
+.error {
+    color: var(--error);
+    font-size: 12pt;
 }

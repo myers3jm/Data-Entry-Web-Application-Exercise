@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Data Entry</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <h1>Error Encountered</h1>
+        <p>An error was encountered, and no changes have been made to the database. Below are the error messages provided from the server.</p>
+        <ul>
+            {% for msg in errors %}
+            <li class="error">{{msg}}</li>
+            {% endfor %}
+        </ul>
+        <br />
+        <a href="http://localhost:5000/">Back to Home</a>
+    </body>
+</html>
