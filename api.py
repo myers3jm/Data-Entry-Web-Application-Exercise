@@ -21,10 +21,7 @@ class DataModel(db.Model):
 # Web interface routes
 @app.route('/')
 def home():
-    return '''
-    <h1>Data Entry Web Application</h1>
-    <p>Created by Jared Myers, 08.07.2025</p>
-    <a href="/entry/">Begin entering data</a>'''
+    return render_template('index.html')
 
 @app.route('/entry/')
 def entry():
