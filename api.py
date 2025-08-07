@@ -23,10 +23,6 @@ class DataModel(db.Model):
 def home():
     return render_template('index.html')
 
-@app.route('/entry/')
-def entry():
-    return render_template('entry.html')
-
 @app.route('/submit/', methods=['POST'])
 def submit_form():
     name = request.form['name']
