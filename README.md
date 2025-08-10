@@ -80,14 +80,14 @@ This endpoint accepts HTTP POST requests and is used to enter data into the data
 ```
 In the event of a bad request, the server will issue `HTTP 400 - Bad Request` and a list of the errors with the request:
 ```
-{"name": "", "age": -3, "title":"Shepherd", "hometown":"Columbus"}
+{"name": "", "age": -3, "title":"", "hometown":"Columbus"}
 ```
 ```
 {
 	"errors": [
 		"Invalid name provided. Acceptable values are nonzero-length strings.",
 		"Invalid age provided. Acceptable values are whole numbers 1-150 inclusive. This field can also be left blank.",
-		"Invalid title provided. Acceptable values are 'Other' 'Ms.' 'Mrs.' 'Mr.' and 'Dr.'"
+		"Invalid title provided. Acceptable values are nonzero-length strings"
 	]
 }
 ```
