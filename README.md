@@ -36,7 +36,7 @@ On Windows, there are a couple of options. If you are using `cmd.exe` as your co
 \.venv\Scripts\activate.bat
 ```
 
-If you are using PowerShell (in 2025, you really should be) run this command:
+If you are using PowerShell run this command:
 ```
 \.venv\Scripts\Activate.ps1
 ```
@@ -69,3 +69,53 @@ The warnings can be ignored, as this is not a production environment. You are no
 
 When you have entered data into the fields, click "Submit" and you will see all previously-entered data, with the addition of your new submission.
 ![The data display](images/006.png)
+
+## Interaction via API
+This web application provides an API layer. The API provides two endpoints: `/api/submit` and `/api/data/`.
+
+### The `/api/submit/` Endpoint
+This endpoint accepts HTTP POST requests and is used to enter data into the database. Below is a sample request which will be accepted by the API:
+```
+{"name": "Jared", "age": 24, "title":"Mr.", "hometown":"Columbus"}
+```
+In the event of a bad request, the server will issue `HTTP 400 - Bad Request` and a list of the errors with the request:
+```
+{"name": "", "age": -3, "title":"Shepherd", "hometown":"Columbus"}
+```
+```
+{
+	"errors": [
+		"Invalid name provided. Acceptable values are nonzero-length strings.",
+		"Invalid age provided. Acceptable values are whole numbers 1-150 inclusive. This field can also be left blank.",
+		"Invalid title provided. Acceptable values are 'Other' 'Ms.' 'Mrs.' 'Mr.' and 'Dr.'"
+	]
+}
+```
+
+### The `/api/data/` Endpoint
+This endpoint accepts HTTP GET requests and is used to view data in the database. Below is a sample response from the server to a standard HTTP GET request:
+```
+[
+	{
+		"id": 1,
+		"name": "Jared M",
+		"age": 24,
+		"title": "Mr.",
+		"hometown": "Columbus"
+	},
+	{
+		"id": 2,
+		"name": "George R. R. Martin",
+		"age": 76,
+		"title": "Mr.",
+		"hometown": "Santa Fe"
+	},
+	{
+		"id": 3,
+		"name": "John R. R. Tolkien",
+		"age": 81,
+		"title": "Dr.",
+		"hometown": "Bloemfontein"
+	}
+]
+```
