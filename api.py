@@ -6,7 +6,7 @@ from flask_restful import Resource, Api, reqparse, fields, marshal, marshal_with
 
 NAME_HELP_TEXT = 'Invalid name provided. Acceptable values are nonzero-length strings.'
 AGE_HELP_TEXT = 'Invalid age provided. Acceptable values are whole numbers 1-150 inclusive. This field can also be left blank.'
-TITLE_HELP_TEXT = 'Invalid title provided. Acceptable values are "Other" "Ms." "Mrs." "Mr." and "Dr."'
+TITLE_HELP_TEXT = 'Invalid title provided. Acceptable values are nonzero-length strings.'
 HOMETOWN_HELP_TEXT = 'Acceptable values are nonzero-length strings.'
 
 app = Flask(__name__)
@@ -44,7 +44,7 @@ class DataModel(db.Model):
             except: # Provided value is not a number
                 Error.msgs.append(AGE_HELP_TEXT)
         # Validate title
-        if self.title == None or self.title.upper() not in ['OTHER', 'MS.', 'MRS.', 'MR.', 'DR.']:
+        if self.title == None:
             Error.msgs.append(TITLE_HELP_TEXT)
         
         if len(Error.msgs) > 0:

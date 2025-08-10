@@ -11,27 +11,51 @@
         <h1>Enter data here</h1>
         <form action="http://localhost:5000/submit/" method="post">
             <table>
-                <tr>
+                <tr> <!-- Name Row-->
                     <td><label for="name">Name</label></td>
                     <td><input type="text" name="name" required/></td>
                 </tr>
-                <tr>
+                <tr> <!-- Age Row-->
                     <td><label for="age">Age</label></td>
                     <td><input type="number" name="age" step="1" min="1" max="150"/></td>
                 </tr>
-                <tr>
+                <tr> <!-- Title Row-->
                     <td><label for="title">Title</label></td>
                     <td>
-                        <select name="title" required>
-                            <option selected>Other</option>
+                        <select id="titleSelect" name="title" required>
+                            <option value="" selected disabled>-- Please select --</option>
                             <option value="Ms.">Ms.</option>
                             <option value="Mrs.">Mrs.</option>
                             <option value="Mr.">Mr.</option>
                             <option value="Dr.">Dr.</option>
+                            <option value="Custom">Custom</option>
                         </select>
+                        <input type="text" id="customTextField" placeholder="Type your preferred title..." style="display:none"/>
+                        <script>
+                            const select = document.getElementById('titleSelect');
+                            const customField = document.getElementById('customTextField');
+
+                            select.addEventListener('change', () => {
+                                if (select.value === 'Custom') {
+                                    // Show the custom text box
+                                    customField.style.display = 'block';
+                                    customField.required = true;
+                                    // Switch the "title" field to the custom text box
+                                    select.removeAttribute('name');
+                                    customField.setAttribute('name', 'title');
+                                } else {
+                                    // Hide the custom text box
+                                    customField.style.display = 'none';
+                                    customField.required = false;
+                                    // Switch the "title" field to the select
+                                    customField.removeAttribute('name');
+                                    select.setAttribute('name', 'title');
+                                }
+                            });
+                        </script>
                     </td>
                 </tr>
-                <tr>
+                <tr> <!-- Hometown Row-->
                     <td><label for="hometown">Hometown</label></td>
                     <td><input type="text" name="hometown"/></td>
                 </tr>
