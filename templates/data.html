@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
+        <p>Below is the data entered so far. The newest entry is highlighted at the top of the table.</p>
         <table>
             <tr>
                 <th>Name</th>
@@ -14,12 +15,21 @@
                 <th>Hometown</th>
             </tr>
             {% for row in data %}
+            {% if row == data[0] %}
+            <tr class="newest_row">
+                <td>{{row.name}}</td>
+                <td>{{row.age}}</td>
+                <td>{{row.title}}</td>
+                <td>{{row.hometown}}</td>
+            </tr>
+            {% else %}
             <tr>
                 <td>{{row.name}}</td>
                 <td>{{row.age}}</td>
                 <td>{{row.title}}</td>
                 <td>{{row.hometown}}</td>
             </tr>
+            {% endif %}
             {% endfor %}
         </table>
         <br />

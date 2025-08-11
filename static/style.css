@@ -89,6 +89,11 @@ table, tr {
     border-collapse: collapse;
 }
 
+tr.newest_row {
+    color: var(--secondary);
+    border: 5px solid var(--shadow-secondary);
+}
+
 td, th {
     border: 1px solid var(--accent);
     border-collapse: collapse;

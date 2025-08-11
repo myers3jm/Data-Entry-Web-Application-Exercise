@@ -94,7 +94,7 @@ def submit_form():
 # Web view of data
 @app.route('/data/')
 def view_data():
-    return render_template('data.html', data=DataModel.query.all())
+    return render_template('data.html', data=sorted(DataModel.query.all(), key=lambda x: x.id, reverse=True))
 
 # Web view of errors
 @app.route('/error/')
@@ -139,7 +139,7 @@ api.add_resource(Submit, '/api/submit/')
 class Data(Resource):
     @marshal_with(data_fields)
     def get(self):
-        return DataModel.query.all()
+        return sorted(DataModel.query.all(), key=lambda x: x.id, reverse=True)
 api.add_resource(Data, '/api/data/')
 
 # Main program
