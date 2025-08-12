@@ -97,7 +97,7 @@ This endpoint accepts HTTP GET requests and is used to view data in the database
 ```
 [
 	{
-		"id": 1,
+		"id": 3,
 		"name": "Jared M",
 		"age": 24,
 		"title": "Mr.",
@@ -111,7 +111,7 @@ This endpoint accepts HTTP GET requests and is used to view data in the database
 		"hometown": "Santa Fe"
 	},
 	{
-		"id": 3,
+		"id": 1,
 		"name": "John R. R. Tolkien",
 		"age": 81,
 		"title": "Dr.",
